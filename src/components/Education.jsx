@@ -1,27 +1,21 @@
 import { Title } from "./title";
 import { EducationField } from "./EducationField";
-import { useState } from "react";
 import { AddButton } from "./AddButton";
 
-export function Education() {
-    const [numOfEducationFields, setNumOfEducationFields] = useState(1);
-
-    const handleOnClick = () => {
-        setNumOfEducationFields(numOfEducationFields + 1);
-    };
-
-    const handleRemove = () => {
-        setNumOfEducationFields(numOfEducationFields - 1);
-    }
-
+export function Education({ education, onEducationChange, onRemoveEducation, onAddEducation }) {
     return (
         <>
-            <Title title="Education"></Title>
-            {/* Loop over numOfEducationFields to create multiple EducationField components */}
-            {[...Array(numOfEducationFields)].map((_, index) => (
-                <EducationField key={index} number={index + 1} handleRemove={handleRemove} />
+            <Title title="Education" />
+            {education.map((edu, index) => (
+                <EducationField 
+                    key={index} 
+                    number={index + 1} 
+                    data={edu}  // Change from education to data
+                    onFieldChange={(field, value) => onEducationChange('education', index, field, value)}  // Update this prop
+                    handleRemove={() => onRemoveEducation('education', index)} 
+                />
             ))}
-            <AddButton handleOnClick={handleOnClick}></AddButton>
+            <AddButton handleOnClick={onAddEducation} />
         </>
     );
 }

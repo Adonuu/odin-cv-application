@@ -1,17 +1,18 @@
-import { useState } from "react";
-
-export function TextAreaField ({ label }) {
-    const [inputValue, setInputValue] = useState('');
-
+export function TextAreaField({ label, value, onChange }) {
     const labelNoSpaces = label.replaceAll(" ", "");
 
     const handleChange = (event) => { 
-        setInputValue(event.target.value)
+        onChange(event.target.value);  // Call the onChange function passed as a prop
     };
+
     return (
         <div className="field">
             <label htmlFor={labelNoSpaces}>{label}</label>
-            <textarea onChange={handleChange}>{inputValue}</textarea>
+            <textarea 
+                id={labelNoSpaces} 
+                value={value} 
+                onChange={handleChange} 
+            />
         </div>
     );
 }

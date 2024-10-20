@@ -1,27 +1,21 @@
 import { Title } from "./title";
 import { ExperienceField } from "./ExperienceField";
-import { useState } from "react";
 import { AddButton } from "./AddButton";
 
-export function Experience() {
-    const [numOfExperienceFields, setNumOfExperienceFields] = useState(1);
-
-    const handleOnClick = () => {
-        setNumOfExperienceFields(numOfExperienceFields + 1);
-    };
-
-    const handleRemove = () => {
-        setNumOfExperienceFields(numOfExperienceFields - 1);
-    }
-
+export function Experience({ experience, onExperienceChange, onRemoveExperience, onAddExperience }) {
     return (
         <>
-            <Title title="Experience"></Title>
-            {/* Loop over numOfExperienceFields to create multiple ExperienceField components */}
-            {[...Array(numOfExperienceFields)].map((_, index) => (
-                <ExperienceField key={index} number={index + 1} handleRemove={handleRemove} />
+            <Title title="Experience" />
+            {experience.map((exp, index) => (
+                <ExperienceField 
+                    key={index} 
+                    number={index + 1} 
+                    data={exp} 
+                    onFieldChange={(field, value) => onExperienceChange('experience', index, field, value)} 
+                    handleRemove={() => onRemoveExperience('experience', index)} 
+                />
             ))}
-            <AddButton handleOnClick={handleOnClick}></AddButton>
+            <AddButton handleOnClick={onAddExperience} />
         </>
     );
 }
