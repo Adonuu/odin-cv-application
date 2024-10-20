@@ -2,7 +2,8 @@ import { useState } from "react";
 import { exampleData } from "../exampleData";
 import { Experience } from "./Experience";
 import { GeneralInformation } from "./GeneralInformation";
-import { Education } from "./Education"; // Assuming you have an Education component
+import { Education } from "./Education";
+import { Preview } from "./Preview";
 
 export function App() {
     const [data, setData] = useState(exampleData);
@@ -40,23 +41,27 @@ export function App() {
     };
 
     return (
-        <div>
-            <GeneralInformation 
-                data={data} 
-                onInputChange={(field, value) => setData(prev => ({ ...prev, [field]: value }))} 
-            />
-            <Experience 
-                experience={data.experience} 
-                onExperienceChange={handleFieldChange} 
-                onRemoveExperience={handleRemoveItem} 
-                onAddExperience={() => handleAddItem('experience')} 
-            />
-            <Education 
-                education={data.education} 
-                onEducationChange={handleFieldChange} 
-                onRemoveEducation={handleRemoveItem} 
-                onAddEducation={() => handleAddItem('education')} 
-            />
-        </div>
+        <>
+            <div>
+                <GeneralInformation 
+                    data={data} 
+                    onInputChange={(field, value) => setData(prev => ({ ...prev, [field]: value }))} 
+                />
+                <Experience 
+                    experience={data.experience} 
+                    onExperienceChange={handleFieldChange} 
+                    onRemoveExperience={handleRemoveItem} 
+                    onAddExperience={() => handleAddItem('experience')} 
+                />
+                <Education 
+                    education={data.education} 
+                    onEducationChange={handleFieldChange} 
+                    onRemoveEducation={handleRemoveItem} 
+                    onAddEducation={() => handleAddItem('education')} 
+                />
+            </div>
+            <Preview data={data}></Preview>
+        </>
+        
     );
 }

@@ -1,0 +1,14 @@
+.preview {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.preview h2 {
+    margin-bottom: 10px;
+}
+
+.preview .experience-item,
+.preview .education-item {
+    margin-bottom: 15px;
+}
