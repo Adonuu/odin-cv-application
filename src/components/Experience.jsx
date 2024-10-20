@@ -10,12 +10,16 @@ export function Experience() {
         setNumOfExperienceFields(numOfExperienceFields + 1);
     };
 
+    const handleRemove = () => {
+        setNumOfExperienceFields(numOfExperienceFields - 1);
+    }
+
     return (
         <>
             <Title title="Experience"></Title>
             {/* Loop over numOfExperienceFields to create multiple ExperienceField components */}
             {[...Array(numOfExperienceFields)].map((_, index) => (
-                <ExperienceField key={index} number={index + 1} />
+                <ExperienceField key={index} number={index + 1} handleRemove={handleRemove} />
             ))}
             <AddButton handleOnClick={handleOnClick}></AddButton>
         </>

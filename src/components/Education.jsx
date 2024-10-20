@@ -9,13 +9,17 @@ export function Education() {
     const handleOnClick = () => {
         setNumOfEducationFields(numOfEducationFields + 1);
     };
-    
+
+    const handleRemove = () => {
+        setNumOfEducationFields(numOfEducationFields - 1);
+    }
+
     return (
         <>
             <Title title="Education"></Title>
             {/* Loop over numOfEducationFields to create multiple EducationField components */}
             {[...Array(numOfEducationFields)].map((_, index) => (
-                <EducationField key={index} number={index + 1} />
+                <EducationField key={index} number={index + 1} handleRemove={handleRemove} />
             ))}
             <AddButton handleOnClick={handleOnClick}></AddButton>
         </>
