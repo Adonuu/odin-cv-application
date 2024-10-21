@@ -3,13 +3,11 @@ import '../styles/preview.css';
 export function Preview({ data }) {
     return (
         <div className="preview">
-            <h2>Preview</h2>
             <div className="general-information">
-                <h3>General Information</h3>
-                <p><strong>Name:</strong> {data.name}</p>
-                <p><strong>Email:</strong> {data.email}</p>
-                <p><strong>Phone Number:</strong> {data.phone}</p>
+                <h2>{data.name}</h2>
+                <h3>{data.email} | {data.phone}</h3>
             </div>
+        
             <div className="experience">
                 <h3>Experience</h3>
                 {data.experience.length > 0 ? (

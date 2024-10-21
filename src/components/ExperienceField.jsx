@@ -1,11 +1,18 @@
 import { Field } from "./field";
 import { FieldHeading } from "./FieldHeading";
 import { TextAreaField } from "./TextAreaField";
+import '../styles/fieldHeading.css';
 
 export function ExperienceField({ number, data, onFieldChange, handleRemove }) {
     return (
         <div className="fieldPanel">
-            <FieldHeading heading={`Experience ${number}`} />
+            <div className="fieldHeading">
+                <FieldHeading heading={`Experience ${number}`} />
+                {/* Conditionally render the Remove button when number is greater than 1 */}
+                {number > 1 && (
+                    <button onClick={handleRemove}>Remove</button>
+                )}
+            </div>
             <Field 
                 label='Company' 
                 type='text' 
@@ -35,11 +42,6 @@ export function ExperienceField({ number, data, onFieldChange, handleRemove }) {
                 value={data.endDate} 
                 onChange={(value) => onFieldChange('endDate', value)} 
             />
-
-            {/* Conditionally render the Remove button when number is greater than 1 */}
-            {number > 1 && (
-                <button onClick={handleRemove}>Remove</button>
-            )}
         </div>
     );
 }

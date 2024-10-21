@@ -1,10 +1,17 @@
 import { Field } from "./field";
 import { FieldHeading } from "./FieldHeading";
+import '../styles/fieldHeading.css';
 
 export function EducationField({ number, data, onFieldChange, handleRemove }) {
     return (
         <div className="fieldPanel">
-            <FieldHeading heading={`Education ${number}`} />
+            <div className="fieldHeading">
+                <FieldHeading heading={`Education ${number}`} />
+                {/* Conditionally render the Remove button when number is greater than 1 */}
+                {number > 1 && (
+                    <button onClick={handleRemove}>Remove</button>
+                )}
+            </div>
             <Field 
                 label='School' 
                 type='text' 

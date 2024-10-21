@@ -4,7 +4,7 @@ import { AddButton } from "./AddButton";
 
 export function Experience({ experience, onExperienceChange, onRemoveExperience, onAddExperience }) {
     return (
-        <>
+        <div className="editPanel">
             <Title title="Experience" />
             {experience.map((exp, index) => (
                 <ExperienceField 
@@ -16,6 +16,6 @@ export function Experience({ experience, onExperienceChange, onRemoveExperience,
                 />
             ))}
             <AddButton handleOnClick={onAddExperience} />
-        </>
+        </div>
     );
 }

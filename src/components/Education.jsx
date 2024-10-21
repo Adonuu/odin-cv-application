@@ -4,7 +4,7 @@ import { AddButton } from "./AddButton";
 
 export function Education({ education, onEducationChange, onRemoveEducation, onAddEducation }) {
     return (
-        <>
+        <div className="editPanel">
             <Title title="Education" />
             {education.map((edu, index) => (
                 <EducationField 
@@ -16,6 +16,6 @@ export function Education({ education, onEducationChange, onRemoveEducation, onA
                 />
             ))}
             <AddButton handleOnClick={onAddEducation} />
-        </>
+        </div>
     );
 }

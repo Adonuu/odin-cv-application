@@ -42,7 +42,7 @@ export function App() {
 
     return (
         <>
-            <div>
+            <div className="editor">
                 <GeneralInformation 
                     data={data} 
                     onInputChange={(field, value) => setData(prev => ({ ...prev, [field]: value }))} 

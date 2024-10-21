@@ -1,3 +1,5 @@
+import '../styles/textAreaField.css';
+
 export function TextAreaField({ label, value, onChange }) {
     const labelNoSpaces = label.replaceAll(" ", "");
 

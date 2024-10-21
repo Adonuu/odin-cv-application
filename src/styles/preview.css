@@ -12,3 +12,21 @@
 .preview .education-item {
     margin-bottom: 15px;
 }
+
+.general-information {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.general-information h2 {
+    margin-bottom: 0px;
+}
+
+.experience h3 {
+    border-bottom: 1px solid white;
+}
+
+.education h3 {
+    border-bottom: 1px solid white;
+}

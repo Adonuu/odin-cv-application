@@ -1,0 +1,13 @@
+.fieldHeading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fieldPanel {
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+}
+
+.fieldHeading button {
+    margin-right: 25px;
+}
